@@ -1,7 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "@/styles/Home.module.css";
-import Link from "next/link";
+import { HomePage } from "@/src/components/home/home-page";
 
 export default function Home({ data }) {
   return (
@@ -12,33 +10,7 @@ export default function Home({ data }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <nav>
-          <ul>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/about-us">About Us</Link>
-            </li>
-            <li>
-              <Link href="/events">Events</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
-      <main className={styles.main}>
-        {data.map((ev) => {
-          return (
-            <Link href={`/events/${ev.id}`} key={ev.id}>
-              <Image src={ev.image} alt={ev.title} width={200} height={100} />
-              <h2>{ev.title}</h2>
-              <p>{ev.description}</p>
-            </Link>
-          );
-        })}
-      </main>
+      <HomePage data={data} />
     </>
   );
 }

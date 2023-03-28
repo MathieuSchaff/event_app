@@ -1,13 +1,7 @@
-import Image from "next/image";
+import EventCard from "@/src/components/events/eventCard";
 const Event = ({ event }) => {
   console.log(event);
-  return (
-    <div>
-      <Image src={event.image} alt={event.title} width={300} height={200} />
-      <h1>{event.title}</h1>
-      <p>{event.description}</p>
-    </div>
-  );
+  return <EventCard event={event} />;
 };
 export default Event;
 export async function getStaticPaths() {
