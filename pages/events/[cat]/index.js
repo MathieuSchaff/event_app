@@ -1,6 +1,7 @@
 import CatEvent from "@/src/components/events/catEvent.jsx";
 const EventsCatPage = ({ data, pageName }) => {
-  console.log(data, pageName);
+  console.log(data);
+  console.log(pageName);
   return <CatEvent data={data} pageName={pageName} />;
 };
 export default EventsCatPage;
@@ -20,6 +21,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       data,
+      pageName: params.cat,
     },
   };
 }
